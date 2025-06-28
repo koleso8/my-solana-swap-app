@@ -7,11 +7,12 @@ import { useMemo } from "react";
 import { useHoldingStatus } from "@/hooks/useHoldingStatus";
 import { SwapSection } from "@/components/dashboard/SwapSection";
 import { QuickActions } from "@/components/dashboard/QuickActions";
-import { BalanceSection } from "@/components/dashboard/BalanceSection";
+
 import { TransactionStatus } from "@/components/dashboard/TransactionStatus";
 import { useTransactionStatus } from "@/hooks/useTransactionStatus";
 import { useModalState } from "@/hooks/useModalState";
 import { ApiUsageSection } from "@/components/ApiUsageSection";
+import { BalanceSection } from "@/components/dashboard/BalanceSection";
 
 const WalletButton = dynamic(() => import("@/components/WalletButton").then((mod) => mod.WalletButton), {
   ssr: false,

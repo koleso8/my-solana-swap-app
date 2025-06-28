@@ -236,29 +236,29 @@ export function SwapModal({
     // -------------------- JSX --------------------
     return (
         <div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]"
+            className="fixed inset-0 bg-black/50 dark:bg-gray-900/80 flex items-center justify-center z-[1000] transition-colors duration-300"
             onClick={(e) => onBackdropClick(e, onClose)}
         >
             <div
-                className="bg-white rounded-xl p-6 w-full max-w-lg shadow-xl max-h-[90vh] overflow-y-auto"
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-lg shadow-xl max-h-[90vh] overflow-y-auto transition-colors duration-300"
                 onClick={(e) => e.stopPropagation()}
             >
-                <h2 className="text-xl font-bold mb-4">Swap Tokens</h2>
+                <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Swap Tokens</h2>
 
                 {/* Controls */}
                 <div className="space-y-4">
                     {/* From token */}
                     <div>
-                        <label className="block text-sm font-medium mb-1">From Token</label>
+                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">From Token</label>
                         <select
                             value={swapParams.fromToken}
                             onChange={(e) => setSwapParams({ ...swapParams, fromToken: e.target.value })}
-                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
                             disabled={isPending}
                         >
                             <option value="">Select token</option>
                             {tokenOptions.map((t) => (
-                                <option key={t.mint} value={t.mint}>
+                                <option key={t.mint} value={t.mint} className="dark:bg-gray-700">
                                     {t.symbol} - {t.name}
                                 </option>
                             ))}
@@ -267,16 +267,16 @@ export function SwapModal({
 
                     {/* To token */}
                     <div>
-                        <label className="block text-sm font-medium mb-1">To Token</label>
+                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">To Token</label>
                         <select
                             value={swapParams.toToken}
                             onChange={(e) => setSwapParams({ ...swapParams, toToken: e.target.value })}
-                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
                             disabled={isPending}
                         >
                             <option value="">Select token</option>
                             {tokenOptions.filter((t) => t.mint !== swapParams.fromToken).map((t) => (
-                                <option key={t.mint} value={t.mint}>
+                                <option key={t.mint} value={t.mint} className="dark:bg-gray-700">
                                     {t.symbol} - {t.name}
                                 </option>
                             ))}
@@ -285,12 +285,12 @@ export function SwapModal({
 
                     {/* Amount */}
                     <div>
-                        <label className="block text-sm font-medium mb-1">Amount</label>
+                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Amount</label>
                         <input
                             type="number"
                             value={swapParams.amount}
                             onChange={(e) => setSwapParams({ ...swapParams, amount: e.target.value })}
-                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
                             disabled={isPending}
                             min="0"
                             step="0.000001"
@@ -300,40 +300,60 @@ export function SwapModal({
 
                     {/* Slippage */}
                     <div>
-                        <label className="block text-sm font-medium mb-1">Slippage (%)</label>
-                        <input
-                            type="number"
-                            value={swapParams.slippage || "0.5"}
-                            onChange={(e) => setSwapParams({ ...swapParams, slippage: e.target.value })}
-                            className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                            disabled={isPending}
-                            min="0"
-                            max="100"
-                            step="0.1"
-                        />
+                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Slippage (%)</label>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() =>
+                                    setSwapParams({ ...swapParams, slippage: (Math.max(0, parseFloat(swapParams.slippage || "0") - 0.01)).toFixed(2) })
+                                }
+                                className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded hover:bg-gray-300 dark:hover:bg-gray-500"
+                                disabled={isPending}
+                            >
+                                −
+                            </button>
+                            <input
+                                type="number"
+                                value={swapParams.slippage || "0.5"}
+                                onChange={(e) => setSwapParams({ ...swapParams, slippage: e.target.value })}
+                                className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
+                                disabled={isPending}
+                                min="0"
+                                max="100"
+                                step="0.01"
+                            />
+                            <button
+                                onClick={() =>
+                                    setSwapParams({ ...swapParams, slippage: (parseFloat(swapParams.slippage || "0") + 0.01).toFixed(2) })
+                                }
+                                className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded hover:bg-gray-300 dark:hover:bg-gray-500"
+                                disabled={isPending}
+                            >
+                                ＋
+                            </button>
+                        </div>
                     </div>
 
                     {/* Wallet */}
                     <div>
-                        <label className="block text-sm font-medium mb-1">Wallet Address</label>
+                        <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Wallet Address</label>
                         <input
                             type="text"
                             readOnly
                             value={publicKey?.toBase58() || "No wallet connected"}
-                            className="w-full p-2 border rounded-lg bg-gray-100 text-gray-600"
+                            className="w-full p-2 border rounded-lg bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
                         />
                     </div>
 
                     {/* Quote block */}
                     {isGettingQuote && (
-                        <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg flex items-center gap-2">
-                            <Spinner /> <span className="text-blue-700 text-sm">Getting quote…</span>
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-700 rounded-lg flex items-center gap-2">
+                            <Spinner /> <span className="text-blue-700 dark:text-blue-300 text-sm">Getting quote…</span>
                         </div>
                     )}
 
                     {quote && (
-                        <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-sm space-y-1">
-                            <h4 className="font-semibold text-green-800">Quote</h4>
+                        <div className="p-3 bg-green-50 dark:bg-green-900/50 border border-green-200 dark:border-green-700 rounded-lg text-sm space-y-1">
+                            <h4 className="font-semibold text-green-800 dark:text-green-200">Quote</h4>
                             <div>
                                 <strong>Expected output:</strong>{" "}
                                 {safeNumber(quote.data.outputAmount, tokenOptions.find((t) => t.mint === swapParams.toToken)?.decimals || 6)}{" "}
@@ -351,30 +371,34 @@ export function SwapModal({
                                 <strong>Network fee:</strong> {safeNumber(quote.data.fees.networkFee, 9)} SOL
                             </div>
                             {Number(quote.data.outputAmount) === 0 && (
-                                <p className="text-red-600 text-xs mt-2">⚠️ This token pair is likely not supported on Raydium.</p>
+                                <p className="text-red-600 dark:text-red-400 text-xs mt-2">⚠️ This token pair is likely not supported on Raydium.</p>
                             )}
                         </div>
                     )}
 
                     {quoteError && (
-                        <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">Quote error: {quoteError}</div>
+                        <div className="p-3 bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 rounded-lg text-sm text-red-700 dark:text-red-300">
+                            Quote error: {quoteError}
+                        </div>
                     )}
                     {swapError && (
-                        <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">Swap error: {swapError}</div>
+                        <div className="p-3 bg-red-50 dark:bg-red-900/50 border border-red-200 dark:border-red-700 rounded-lg text-sm text-red-700 dark:text-red-300">
+                            Swap error: {swapError}
+                        </div>
                     )}
                 </div>
 
                 {/* Actions */}
                 <div className="mt-6 flex justify-end gap-2">
                     <button
-                        className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+                        className="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500"
                         onClick={onClose}
                         disabled={isPending}
                     >
                         Close
                     </button>
                     <button
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center disabled:opacity-50"
+                        className="px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 flex items-center disabled:opacity-50"
                         onClick={handleSubmit}
                         disabled={isPending || !publicKey || !quote || !quote.success}
                     >
@@ -383,7 +407,7 @@ export function SwapModal({
                 </div>
 
                 {/* Rate limit */}
-                <p className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-xs text-yellow-800">
+                <p className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/50 border border-yellow-200 dark:border-yellow-700 rounded-lg text-xs text-yellow-800 dark:text-yellow-300">
                     <strong>Rate limit:</strong> 30 requests/min. Make sure your wallet is connected.
                 </p>
             </div>

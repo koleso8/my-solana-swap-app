@@ -43,22 +43,22 @@ export function BalanceModal({
 
     return (
         <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000]"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[1000] "
             onClick={(e) => onBackdropClick(e, onClose)}
         >
             <div
-                className="bg-white rounded-xl p-6 w-full max-w-lg shadow-xl"
+                className="bg-white rounded-xl p-6 w-full max-w-lg shadow-xl  dark:bg-gray-900"
                 onClick={(e) => e.stopPropagation()}
             >
                 <h2 className="text-xl font-bold mb-4">Wallet Balance</h2>
 
                 <div className="mb-4">
-                    <label className="block text-sm font-medium mb-1 text-gray-600">Your wallet</label>
+                    <label className="block text-sm font-medium mb-1 text-gray-600  dark:text-white">Your wallet</label>
                     <input
                         type="text"
                         value={walletPublicKey || ''}
                         disabled
-                        className="w-full p-2 border rounded-lg bg-gray-100 text-gray-500 text-sm"
+                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
                     />
                 </div>
 
@@ -77,14 +77,14 @@ export function BalanceModal({
 
                 <div className="mt-6 flex justify-end gap-2">
                     <button
-                        className="px-4 py-2 bg-gray-200 rounded-lg"
+                        className="px-3 py-1 bg-gray-200 dark:bg-gray-700 dark:text-white text-gray-800 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
                         onClick={onClose}
                         disabled={isLoading}
                     >
                         Close
                     </button>
                     <button
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center"
+                        className="px-3 py-1 bg-gray-200 dark:bg-gray-700 dark:text-white text-gray-800 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
                         onClick={handleBalanceRequest}
                         disabled={isLoading || !walletPublicKey}
                     >

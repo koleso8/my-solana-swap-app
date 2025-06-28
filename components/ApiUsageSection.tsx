@@ -31,22 +31,22 @@ export function ApiUsageSection({ hasHolding, loading, error, amount }: ApiUsage
 
     // Класс для анимации золотого переливания
     const sectionClass = hasHolding
-        ? "bg-gradient-to-r from-yellow-400 via-yellow-100 to-yellow-200 animate-gold-shimmer p-6 rounded-2xl shadow-lg border border-yellow-100"
-        : "bg-white p-6 rounded-2xl shadow border";
+        ? "bg-gradient-to-r from-yellow-400 via-yellow-100 to-yellow-200 dark:from-yellow-500 dark:via-yellow-700 dark:to-yellow-600 animate-gold-shimmer p-6 rounded-2xl shadow-lg border border-yellow-100 dark:border-yellow-600"
+        : "bg-white dark:bg-gray-900 p-6 rounded-2xl shadow border border-gray-200 dark:border-gray-700";
+
 
     return (
         <section className={sectionClass}>
 
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">API Usage</h2>
 
-            {loading && <p className="text-gray-600">Checking holding status...</p>}
-
+            {loading && <p className="text-gray-600 dark:text-gray-300">Checking holding status...</p>}
             {error && apiStats && (
                 <div className="space-y-2">
-                    <p className="text-gray-600">
-                        Requests remaining: <span className="font-semibold text-gray-800">{apiStats.remaining}</span>
+                    <p className="text-gray-600 dark:text-gray-300">
+                        Requests remaining: <span className="font-semibold text-gray-800 dark:text-white">{apiStats.remaining}</span>
                     </p>
-                    <div className="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                    <div className="w-full bg-gray-100 dark:bg-gray-800 h-3 rounded-full overflow-hidden">
                         <div
                             className="bg-gradient-to-r from-blue-500 to-blue-700 h-full transition-width duration-300"
                             style={{ width: `${(apiStats.remaining / apiStats.total) * 100}%` }}
@@ -58,7 +58,7 @@ export function ApiUsageSection({ hasHolding, loading, error, amount }: ApiUsage
             {!loading && !error && (
                 <>
                     {hasHolding ? (
-                        <div className="text-yellow-900 px-4 py-2 rounded font-bold text-center ">
+                        <div className="text-yellow-900 dark:text-yellow-300 px-4 py-2 rounded font-bold text-center ">
                             🔥 Unlimited access unlocked 🔥
                         </div>
                     ) : apiStats ? (

@@ -106,15 +106,22 @@ function Features() {
         {items.map((item) => (
           <motion.div
             key={item.title}
-            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-            className="bg-white p-8 rounded-2xl shadow-sm border hover:shadow-md transition hover:-translate-y-1 z-50"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 
+                     hover:shadow-md hover:-translate-y-1 transition duration-300 z-50"
           >
-            <h3 className="font-semibold text-xl mb-3">{item.title}</h3>
-            <p className="text-gray-600">{item.desc}</p>
+            <h3 className="font-semibold text-xl mb-3 text-gray-900 dark:text-gray-100">
+              {item.title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400">{item.desc}</p>
           </motion.div>
         ))}
       </motion.div>
     </section>
+
   );
 }
 

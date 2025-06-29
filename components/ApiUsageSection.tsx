@@ -38,12 +38,12 @@ export function ApiUsageSection({ hasHolding, loading, error, amount }: ApiUsage
     return (
         <section className={sectionClass}>
 
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">API Usage</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">API Usage</h2>
 
             {loading && <p className="text-gray-600 dark:text-gray-300">Checking holding status...</p>}
             {error && apiStats && (
                 <div className="space-y-2">
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600 dark:text-white">
                         Requests remaining: <span className="font-semibold text-gray-800 dark:text-white">{apiStats.remaining}</span>
                     </p>
                     <div className="w-full bg-gray-100 dark:bg-gray-800 h-3 rounded-full overflow-hidden">

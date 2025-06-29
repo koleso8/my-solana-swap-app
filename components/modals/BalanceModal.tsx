@@ -67,7 +67,7 @@ export function BalanceModal({
                 </div>
 
                 {balanceResult && (
-                    <pre className="mt-4 p-3 bg-gray-100 rounded text-sm whitespace-pre-wrap">
+                    <pre className="mt-4 p-3 bg-gray-100 rounded text-sm whitespace-break-spaces overflow-x-scroll  dark:bg-gray-800 dark:text-white dark:border-gray-600">
                         {balanceResult}
                     </pre>
                 )}

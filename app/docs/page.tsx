@@ -15,12 +15,12 @@ export default function APIDocumentation() {
 
   const CodeBlock = ({ children, language = 'javascript', id }) => (
     <div className="relative">
-      <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
+      <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto dark:bg-gray-800 dark:text-gray-200">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-xs text-gray-400 uppercase">{language}</span>
+          <span className="text-xs text-gray-400 uppercase dark:text-gray-500">{language}</span>
           <button
             onClick={() => copyToClipboard(children, id)}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-white transition-colors dark:text-gray-500 dark:hover:text-gray-300"
           >
             {copiedCode === id ? <CheckCircle size={16} /> : <Copy size={16} />}
           </button>
@@ -33,21 +33,21 @@ export default function APIDocumentation() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 ">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Header */}
-      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-10 pt-7">
+      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-10 pt-7 dark:bg-gray-900/80 dark:border-gray-800/50">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400 dark:text-transparent">
                 {Project_Name}
               </h1>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 mt-2 dark:text-gray-400">
                 A simple and reliable way to perform token swaps on various Solana AMM platforms
               </p>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+              <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium dark:bg-green-900/50 dark:text-green-300">
                 v1.0.0
               </div>
             </div>
@@ -60,30 +60,30 @@ export default function APIDocumentation() {
           {/* Quick Start */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center">
-              <Zap className="mr-2 text-blue-600" />
+              <Zap className="mr-2 text-blue-600 dark:text-blue-400" />
               Quick Start
             </h2>
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50">
-              <p className="text-gray-600 mb-6">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 dark:bg-gray-800/70 dark:border-gray-700/50">
+              <p className="text-gray-600 mb-6 dark:text-gray-400">
                 Start using our API for token swaps on Solana in minutes.
                 All requests require a wallet address in the header.
               </p>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-blue-50/50 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-blue-800">Base URL</h3>
-                  <code className="bg-white px-3 py-2 rounded text-sm block">
+                <div className="bg-blue-50/50 p-4 rounded-lg dark:bg-blue-900/20">
+                  <h3 className="font-semibold mb-2 text-blue-800 dark:text-blue-300">Base URL</h3>
+                  <code className="bg-white px-3 py-2 rounded text-sm block dark:bg-gray-700 dark:text-gray-200">
                     {Project_Domain}/api
                   </code>
                 </div>
-                <div className="bg-green-50/50 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-green-800">Authentication</h3>
-                  <code className="bg-white px-3 py-2 rounded text-sm block">
+                <div className="bg-green-50/50 p-4 rounded-lg dark:bg-green-900/20">
+                  <h3 className="font-semibold mb-2 text-green-800 dark:text-green-300">Authentication</h3>
+                  <code className="bg-white px-3 py-2 rounded text-sm block dark:bg-gray-700 dark:text-gray-200">
                     x-wallet-address: YOUR_WALLET
                   </code>
                 </div>
-                <div className="bg-purple-50/50 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-purple-800">Rate Limit</h3>
-                  <code className="bg-white px-3 py-2 rounded text-sm block">
+                <div className="bg-purple-50/50 p-4 rounded-lg dark:bg-purple-900/20">
+                  <h3 className="font-semibold mb-2 text-purple-800 dark:text-purple-300">Rate Limit</h3>
+                  <code className="bg-white px-3 py-2 rounded text-sm block dark:bg-gray-700 dark:text-gray-200">
                     30 requests/minute
                   </code>
                 </div>
@@ -94,15 +94,15 @@ export default function APIDocumentation() {
           {/* Rate Limits */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
-              <Shield className="mr-2 text-orange-600" />
+              <Shield className="mr-2 text-orange-600 dark:text-orange-400" />
               Restrictions
             </h2>
-            <div className="bg-orange-50/70 backdrop-blur-sm border border-orange-200 p-4 rounded-xl">
+            <div className="bg-orange-50/70 backdrop-blur-sm border border-orange-200 p-4 rounded-xl dark:bg-orange-900/20 dark:border-orange-800/50">
               <div className="flex items-center">
-                <AlertCircle className="text-orange-600 mr-3" size={24} />
+                <AlertCircle className="text-orange-600 mr-3 dark:text-orange-400" size={24} />
                 <div>
-                  <p className="font-semibold text-orange-800">Request limits</p>
-                  <p className="text-orange-700">30 requests per minute per IP address. If the limit is exceeded, the status 429 is returned.</p>
+                  <p className="font-semibold text-orange-800 dark:text-orange-300">Request limits</p>
+                  <p className="text-orange-700 dark:text-orange-500">30 requests per minute per IP address. If the limit is exceeded, the status 429 is returned.</p>
                 </div>
               </div>
             </div>
@@ -111,63 +111,63 @@ export default function APIDocumentation() {
           {/* Raydium Integration */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center">
-              <TrendingUp className="mr-2 text-purple-600" />
+              <TrendingUp className="mr-2 text-purple-600 dark:text-purple-400" />
               Raydium Integration
             </h2>
 
             {/* Get Quote */}
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 mb-8">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 mb-8 dark:bg-gray-800/70 dark:border-gray-700/50">
               <div className="flex items-center mb-4">
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-3">
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-3 dark:bg-blue-900/50 dark:text-blue-300">
                   GET
                 </span>
-                <h3 className="text-xl font-semibold">/quote/raydium</h3>
+                <h3 className="text-xl font-semibold dark:text-gray-200">/quote/raydium</h3>
               </div>
 
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4 dark:text-gray-400">
                 Get a quote for a swap without executing a transaction.
               </p>
 
-              <h4 className="font-semibold mb-3">Параметры</h4>
+              <h4 className="font-semibold mb-3 dark:text-gray-200">Параметры</h4>
               <div className="overflow-x-auto mb-4">
-                <table className="w-full text-sm border border-gray-200 rounded-lg">
-                  <thead className="bg-gray-50">
+                <table className="w-full text-sm border border-gray-200 rounded-lg dark:border-gray-700">
+                  <thead className="bg-gray-50 dark:bg-gray-800">
                     <tr>
-                      <th className="text-left p-3 font-semibold border-b">Parameter</th>
-                      <th className="text-left p-3 font-semibold border-b">Type</th>
-                      <th className="text-left p-3 font-semibold border-b">Required</th>
-                      <th className="text-left p-3 font-semibold border-b">Description</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Parameter</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Type</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Required</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Description</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y">
+                  <tbody className="divide-y dark:divide-gray-700">
                     <tr>
-                      <td className="p-3 font-mono text-purple-600">fromMint</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3">✅</td>
-                      <td className="p-3">Incoming token address</td>
+                      <td className="p-3 font-mono text-purple-600 dark:text-purple-400">fromMint</td>
+                      <td className="p-3 dark:text-gray-400">string</td>
+                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400">Incoming token address</td>
                     </tr>
                     <tr>
-                      <td className="p-3 font-mono text-purple-600">toMint</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3">✅</td>
-                      <td className="p-3">Outgoing token address</td>
+                      <td className="p-3 font-mono text-purple-600 dark:text-purple-400">toMint</td>
+                      <td className="p-3 dark:text-gray-400">string</td>
+                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400">Outgoing token address</td>
                     </tr>
                     <tr>
-                      <td className="p-3 font-mono text-purple-600">amount</td>
-                      <td className="p-3">number</td>
-                      <td className="p-3">✅</td>
-                      <td className="p-3">Number of incoming tokens</td>
+                      <td className="p-3 font-mono text-purple-600 dark:text-purple-400">amount</td>
+                      <td className="p-3 dark:text-gray-400">number</td>
+                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400">Number of incoming tokens</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <h4 className="font-semibold mb-2">Example request</h4>
+              <h4 className="font-semibold mb-2 dark:text-gray-200">Example request</h4>
               <CodeBlock id="quote-request" language="bash">
                 {`curl -X GET "${Project_Domain}/api/quote/raydium?fromMint=So11111111111111111111111111111111111111112&toMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=1000000"`}
               </CodeBlock>
 
-              <h4 className="font-semibold mb-2 mt-4">Sample answer</h4>
+              <h4 className="font-semibold mb-2 mt-4 dark:text-gray-200">Sample answer</h4>
               <CodeBlock id="quote-response" language="json">
                 {`{
   "success": true,
@@ -196,65 +196,65 @@ export default function APIDocumentation() {
             </div>
 
             {/* Execute Swap */}
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 mb-8">
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 mb-8 dark:bg-gray-800/70 dark:border-gray-700/50">
               <div className="flex items-center mb-4">
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mr-3">
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mr-3 dark:bg-green-900/50 dark:text-green-300">
                   POST
                 </span>
-                <h3 className="text-xl font-semibold">/swap/raydium</h3>
+                <h3 className="text-xl font-semibold dark:text-gray-200">/swap/raydium</h3>
               </div>
 
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4 dark:text-gray-400">
                 Prepare a transaction for a token swap on Raydium.
               </p>
 
-              <h4 className="font-semibold mb-2">Headers</h4>
+              <h4 className="font-semibold mb-2 dark:text-gray-200">Headers</h4>
               <CodeBlock id="swap-headers">
                 {`Content-Type: application/json
 x-wallet-address: YOUR_WALLET_ADDRESS`}
               </CodeBlock>
 
-              <h4 className="font-semibold mb-3 mt-4">Request body parameters</h4>
+              <h4 className="font-semibold mb-3 mt-4 dark:text-gray-200">Request body parameters</h4>
               <div className="overflow-x-auto mb-4">
-                <table className="w-full text-sm border border-gray-200 rounded-lg">
-                  <thead className="bg-gray-50">
+                <table className="w-full text-sm border border-gray-200 rounded-lg dark:border-gray-700">
+                  <thead className="bg-gray-50 dark:bg-gray-800">
                     <tr>
-                      <th className="text-left p-3 font-semibold border-b">Parameter</th>
-                      <th className="text-left p-3 font-semibold border-b">Type</th>
-                      <th className="text-left p-3 font-semibold border-b">Required</th>
-                      <th className="text-left p-3 font-semibold border-b">Description</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Parameter</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Type</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Required</th>
+                      <th className="text-left p-3 font-semibold border-b dark:text-gray-300">Description</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y">
+                  <tbody className="divide-y dark:divide-gray-700">
                     <tr>
-                      <td className="p-3 font-mono text-green-600">fromMint</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3">✅</td>
-                      <td className="p-3">Incoming token address</td>
+                      <td className="p-3 font-mono text-green-600 dark:text-green-400">fromMint</td>
+                      <td className="p-3 dark:text-gray-400">string</td>
+                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400">Incoming token address</td>
                     </tr>
                     <tr>
-                      <td className="p-3 font-mono text-green-600">toMint</td>
-                      <td className="p-3">string</td>
-                      <td className="p-3">✅</td>
-                      <td className="p-3">Outgoing token address</td>
+                      <td className="p-3 font-mono text-green-600 dark:text-green-400">toMint</td>
+                      <td className="p-3 dark:text-gray-400">string</td>
+                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400">Outgoing token address</td>
                     </tr>
                     <tr>
-                      <td className="p-3 font-mono text-green-600">amount</td>
-                      <td className="p-3">number</td>
-                      <td className="p-3">✅</td>
-                      <td className="p-3">Number of incoming tokens</td>
+                      <td className="p-3 font-mono text-green-600 dark:text-green-400">amount</td>
+                      <td className="p-3 dark:text-gray-400">number</td>
+                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400">Number of incoming tokens</td>
                     </tr>
                     <tr>
-                      <td className="p-3 font-mono text-green-600">slippage</td>
-                      <td className="p-3">number</td>
-                      <td className="p-3">❌</td>
-                      <td className="p-3">Slippage in percent (default: 0.5)</td>
+                      <td className="p-3 font-mono text-green-600 dark:text-green-400">slippage</td>
+                      <td className="p-3 dark:text-gray-400">number</td>
+                      <td className="p-3 dark:text-gray-400">❌</td>
+                      <td className="p-3 dark:text-gray-400">Slippage in percent (default: 0.5)</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <h4 className="font-semibold mb-2">Example request</h4>
+              <h4 className="font-semibold mb-2 dark:text-gray-200">Example request</h4>
               <CodeBlock id="swap-request" language="bash">
                 {`curl -X POST "${Project_Domain}/api/swap/raydium" \\
   -H "Content-Type: application/json" \\
@@ -267,7 +267,7 @@ x-wallet-address: YOUR_WALLET_ADDRESS`}
   }'`}
               </CodeBlock>
 
-              <h4 className="font-semibold mb-2 mt-4">Sample answer</h4>
+              <h4 className="font-semibold mb-2 mt-4 dark:text-gray-200">Sample answer</h4>
               <CodeBlock id="swap-response" language="json">
                 {`{
   "success": true,
@@ -299,9 +299,9 @@ x-wallet-address: YOUR_WALLET_ADDRESS`}
 
           {/* Error Handling */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Error Handling</h2>
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50">
-              <p className="text-gray-600 mb-4">
+            <h2 className="text-2xl font-bold mb-4 dark:text-gray-200">Error Handling</h2>
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 dark:bg-gray-800/70 dark:border-gray-700/50">
+              <p className="text-gray-600 mb-4 dark:text-gray-400">
                 All errors are returned in the following format:
               </p>
 
@@ -313,19 +313,19 @@ x-wallet-address: YOUR_WALLET_ADDRESS`}
 }`}
               </CodeBlock>
 
-              <h4 className="font-semibold mb-3 mt-6">Error codes</h4>
+              <h4 className="font-semibold mb-3 mt-6 dark:text-gray-200">Error codes</h4>
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-red-50/50 p-4 rounded-lg">
-                  <h5 className="font-semibold text-red-800 mb-2">Client errors</h5>
-                  <ul className="space-y-1 text-sm text-red-700">
+                <div className="bg-red-50/50 p-4 rounded-lg dark:bg-red-900/20">
+                  <h5 className="font-semibold text-red-800 mb-2 dark:text-red-300">Client errors</h5>
+                  <ul className="space-y-1 text-sm text-red-700 dark:text-red-400">
                     <li><code>RATE_LIMIT</code> - Request limit exceeded</li>
                     <li><code>MISSING_WALLET</code> - Wallet address not specified</li>
                     <li><code>INVALID_PARAMS</code> - Incorrect parameters</li>
                   </ul>
                 </div>
-                <div className="bg-orange-50/50 p-4 rounded-lg">
-                  <h5 className="font-semibold text-orange-800 mb-2">Server errors</h5>
-                  <ul className="space-y-1 text-sm text-orange-700">
+                <div className="bg-orange-50/50 p-4 rounded-lg dark:bg-orange-900/20">
+                  <h5 className="font-semibold text-orange-800 mb-2 dark:text-orange-300">Server errors</h5>
+                  <ul className="space-y-1 text-sm text-orange-700 dark:text-orange-400">
                     <li><code>QUOTE_ERROR</code> - Error getting quote</li>
                     <li><code>SWAP_ERROR</code> - Error preparing swap</li>
                     <li><code>INTERNAL_ERROR</code> - Internal Server Error</li>
@@ -337,24 +337,24 @@ x-wallet-address: YOUR_WALLET_ADDRESS`}
 
           {/* Token Addresses */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Popular tokens</h2>
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50">
+            <h2 className="text-2xl font-bold mb-4 dark:text-gray-200">Popular tokens</h2>
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 dark:bg-gray-800/70 dark:border-gray-700/50">
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-yellow-800">Native SOL</h3>
-                  <code className="bg-white/70 px-2 py-1 rounded text-xs block break-all">
+                <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg dark:bg-yellow-900/20">
+                  <h3 className="font-semibold mb-2 text-yellow-800 dark:text-yellow-300">Native SOL</h3>
+                  <code className="bg-white/70 px-2 py-1 rounded text-xs block break-all dark:bg-gray-700 dark:text-gray-200">
                     So11111111111111111111111111111111111111112
                   </code>
                 </div>
-                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-blue-800">USDC</h3>
-                  <code className="bg-white/70 px-2 py-1 rounded text-xs block break-all">
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg dark:bg-blue-900/20">
+                  <h3 className="font-semibold mb-2 text-blue-800 dark:text-blue-300">USDC</h3>
+                  <code className="bg-white/70 px-2 py-1 rounded text-xs block break-all dark:bg-gray-700 dark:text-gray-200">
                     EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
                   </code>
                 </div>
-                <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-2 text-green-800">USDT</h3>
-                  <code className="bg-white/70 px-2 py-1 rounded text-xs block break-all">
+                <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg dark:bg-green-900/20">
+                  <h3 className="font-semibold mb-2 text-green-800 dark:text-green-300">USDT</h3>
+                  <code className="bg-white/70 px-2 py-1 rounded text-xs block break-all dark:bg-gray-700 dark:text-gray-200">
                     Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB
                   </code>
                 </div>
@@ -364,9 +364,9 @@ x-wallet-address: YOUR_WALLET_ADDRESS`}
 
           {/* Client Integration */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Client integration</h2>
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50">
-              <h3 className="text-lg font-semibold mb-4">JavaScript/TypeScript</h3>
+            <h2 className="text-2xl font-bold mb-4 dark:text-gray-200">Client integration</h2>
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 dark:bg-gray-800/70 dark:border-gray-700/50">
+              <h3 className="text-lg font-semibold mb-4 dark:text-gray-200">JavaScript/TypeScript</h3>
 
               <CodeBlock id="client-integration" language="javascript">
                 {`class ${Project_Name}SwapAPI {
@@ -415,52 +415,52 @@ const swap = await api.prepareSwap(SOL_MINT, USDC_MINT, 1000000, 0.5);`}
 
           {/* Roadmap */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Road map</h2>
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50">
+            <h2 className="text-2xl font-bold mb-4 dark:text-gray-200">Road map</h2>
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200/50 dark:bg-gray-800/70 dark:border-gray-700/50">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-blue-600">AMM integration</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">AMM integration</h3>
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-sm">Raydium - ✅ Ready</span>
+                      <span className="text-sm dark:text-gray-400">Raydium - ✅ Ready</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
-                      <span className="text-sm">Jupiter Aggregator - 🚧 In development</span>
+                      <span className="text-sm dark:text-gray-400">Jupiter Aggregator - 🚧 In development</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Meteora - 📋 Planned</span>
+                      <span className="text-sm dark:text-gray-400">Meteora - 📋 Planned</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Pump.fun - 📋 Planned</span>
+                      <span className="text-sm dark:text-gray-400">Pump.fun - 📋 Planned</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Orca - 📋 Planned</span>
+                      <span className="text-sm dark:text-gray-400">Orca - 📋 Planned</span>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-purple-600">Additional features</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-purple-600 dark:text-purple-400">Additional features</h3>
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Transaction history</span>
+                      <span className="text-sm dark:text-gray-400">Transaction history</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Staking integration</span>
+                      <span className="text-sm dark:text-gray-400">Staking integration</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Portfolio tracking</span>
+                      <span className="text-sm dark:text-gray-400">Portfolio tracking</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm">Webhook notifications</span>
+                      <span className="text-sm dark:text-gray-400">Webhook notifications</span>
                     </div>
                   </div>
                 </div>
@@ -470,29 +470,29 @@ const swap = await api.prepareSwap(SOL_MINT, USDC_MINT, 1000000, 0.5);`}
 
           {/* Support */}
           <section>
-            <h2 className="text-2xl font-bold mb-4">Support</h2>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl shadow-sm border border-gray-200/50">
-              <p className="text-gray-600 mb-4">
+            <h2 className="text-2xl font-bold mb-4 dark:text-gray-200">Support</h2>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl shadow-sm border border-gray-200/50 dark:from-gray-800 dark:to-gray-900 dark:border-gray-700/50">
+              <p className="text-gray-600 mb-4 dark:text-gray-400">
                 Need help with API integration? We're here to support your development.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   <ExternalLink size={16} className="mr-2" />
                   Contact support
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   <Code size={16} className="mr-2" />
                   GitHub
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   <ExternalLink size={16} className="mr-2" />
                   Documentation

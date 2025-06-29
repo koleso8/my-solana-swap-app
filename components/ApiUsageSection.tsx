@@ -64,7 +64,7 @@ export function ApiUsageSection({ hasHolding, loading, error, amount }: ApiUsage
                     ) : apiStats ? (
                         <div className="space-y-2">
                             <p className="text-gray-600">
-                                Requests remaining: <span className="font-semibold text-gray-800">{apiStats.remaining}</span>
+                                Requests remaining: <span className="font-semibold text-gray-800 dark:text-white">{apiStats.remaining}</span>
                             </p>
                             <div className="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
                                 <div

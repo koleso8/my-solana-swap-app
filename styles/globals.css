@@ -12,6 +12,16 @@ body {
   }
 }
 
+.logoHeader {
+    font-size: 64px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00ffa3, #dc1fff); /* Solana-палитра */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+ 
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

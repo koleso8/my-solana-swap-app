@@ -19,8 +19,8 @@ export default function HomePage() {
     console.log('Wallets:', wallets);
     console.log('Wallet:', wallet);
     console.log('PublicKey:', publicKey);
-  }, [wallets, wallet, publicKey]);
-
+  }, []);
+  // /wallets, wallet, publicKey
   const isWalletLoading = !wallets;
 
 

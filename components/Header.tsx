@@ -31,7 +31,9 @@ export function Header() {
             <div className="container mx-auto px-6 py-3 flex justify-between items-center">
                 <a href="/" className="flex items-center space-x-2 select-none">
                     <img src="/logo.png" alt="logo" width={40} />
-                    <h1 className="text-xl font-extrabold text-sky-600 dark:text-sky-400">SolDev.Tools</h1>
+                    <h1 className="text-2xl font-extrabold bg-gradient-to-bl from-[#00ffa3] to-[#dc1fff] bg-clip-text text-transparent">
+                        SOLDEV TOOLS
+                    </h1>
                 </a>
 
                 <ThemeToggleButton />

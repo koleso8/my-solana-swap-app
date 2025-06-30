@@ -5,7 +5,7 @@ import { WalletButton } from '@/components/WalletButton';
 import { BalanceDisplay } from '@/components/BalanceDisplay';
 import { TokenHoldingStatus } from '@/components/TokenHoldingStatus';
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from "react";
 
 const TOKEN_MINT = process.env.NEXT_PUBLIC_PROJECT_TOKEN_ADDRESS;
@@ -13,14 +13,16 @@ const TOKEN_MINT = process.env.NEXT_PUBLIC_PROJECT_TOKEN_ADDRESS;
 
 
 export default function HomePage() {
-  const { publicKey, wallets, wallet } = useWallet();
+  const { publicKey, wallets, wallet, connecting, connected } = useWallet();
 
   useEffect(() => {
-    console.log('Wallets:', wallets);
-    console.log('Wallet:', wallet);
-    console.log('PublicKey:', publicKey);
-  }, []);
-  // /wallets, wallet, publicKey
+    if (!wallets?.length) return;   // ждём, пока wallets заполнится
+    console.log("Wallets:", wallets);
+    console.log("Wallet:", wallet);
+    console.log("PublicKey:", publicKey);
+  }, [wallets, wallet, publicKey]);
+
+
   const isWalletLoading = !wallets;
 
 
@@ -28,19 +30,23 @@ export default function HomePage() {
 
 
   return (
-    <div className="relative overflow-hidden">
-      <HeroSection isWalletLoading={isWalletLoading} />
-      <Features />
-      <TokenUtility />
-      <WalletInfo />
-      <BackgroundBlur />
-    </div>
+    <AnimatePresence mode="wait">
+      <div key={isWalletLoading ? 'loading' : 'ready'} className="relative overflow-hidden">
+        <HeroSection isWalletLoading={isWalletLoading} />
+        <Features />
+        <TokenUtility />
+        <WalletInfo />
+        <BackgroundBlur />
+      </div>
+    </AnimatePresence>
   );
 }
 
 function HeroSection({ isWalletLoading }: { isWalletLoading: boolean }) {
   return (
+
     <section className="relative pt-24 pb-32">
+
       <div className="container mx-auto px-4 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

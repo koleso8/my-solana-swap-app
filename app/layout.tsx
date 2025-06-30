@@ -17,7 +17,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Fix for dark mode flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function () {
+  try {
+    const theme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (theme === 'dark' || (!theme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  } catch (_) {}
+})();`,
+          }}
+        />
+      </head>
       <body className="pb-8 pt-12">
         <Header />
         <ClientWalletProvider>

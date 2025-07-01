@@ -36,9 +36,8 @@ export function Header() {
                     </h1>
                 </a>
 
-                <ThemeToggleButton />
-
                 <button
+
                     onClick={() => (isOpen ? closeMenu() : openMenu())}
                     className="md:hidden text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded transition-colors duration-200"
                     aria-label="Toggle menu"
@@ -51,12 +50,13 @@ export function Header() {
                         )}
                     </svg>
                 </button>
-            </div>
+                <div className="min-w-80 hidden md:flex items-center gap-4 px-4">
+                    <ThemeToggleButton />
 
-            <div className="min-w-80 hidden md:flex items-center gap-4 px-4">
-                <NavLink href="/">Home</NavLink>
-                <NavLink href="/docs">API Docs</NavLink>
-                <NavLink href="/dashboard">Dashboard</NavLink>
+                    <NavLink href="/">Home</NavLink>
+                    <NavLink href="/docs">API Docs</NavLink>
+                    <NavLink href="/dashboard">Dashboard</NavLink>
+                </div>
             </div>
 
             {(isOpen || isClosing) && (

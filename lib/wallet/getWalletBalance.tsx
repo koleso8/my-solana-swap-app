@@ -74,7 +74,7 @@ export async function getWalletBalance(walletAddress: string) {
     console.error("Error fetching token accounts:", e);
   }
 
-  // ✅ ДОБАВЛЕНИЕ ТОКЕНА ПРОЕКТА ЕСЛИ ЕГО НЕТ
+  // <CheckCircle size={20}  color={'green'}/> ДОБАВЛЕНИЕ ТОКЕНА ПРОЕКТА ЕСЛИ ЕГО НЕТ
   if (PROJECT_TOKEN_ADDRESS && !tokens[PROJECT_TOKEN_ADDRESS]) {
     try {
       const ata = await getAssociatedTokenAddress(

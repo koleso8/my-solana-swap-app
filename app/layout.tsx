@@ -8,7 +8,10 @@ import "@solana/wallet-adapter-react-ui/styles.css";
 
 
 export const metadata: Metadata = {
-  title: "SolDev.Tools",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  title: "SOLDEV Tools",
   description: "Backend API service for Solana blockchain interactions",
   generator: "SolDev.Tools",
 };
@@ -37,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="pb-8 pt-12">
+      <body className="pt-12">
         <Header />
         <ClientWalletProvider>
           <main>{children}</main>

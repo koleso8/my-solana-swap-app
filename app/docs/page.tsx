@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Copy, CheckCircle, AlertCircle, Code, ExternalLink, Zap, Shield, TrendingUp } from 'lucide-react';
+import { Copy, CheckCircle, AlertCircle, Code, ExternalLink, Zap, Shield, TrendingUp, X, Construction, NotebookPen } from 'lucide-react';
 import { Project_Domain, Project_Name } from '@/config/constants';
 
 export default function APIDocumentation() {
@@ -20,7 +20,7 @@ export default function APIDocumentation() {
           <span className="text-xs text-gray-400 uppercase dark:text-gray-500">{language}</span>
           <button
             onClick={() => copyToClipboard(children, id)}
-            className="text-gray-400 hover:text-white transition-colors dark:text-gray-500 dark:hover:text-gray-300"
+            className="text-gray-400 hover:text-white transition-colors dark:text-gray-500 dark:hover:text-gray-300 absolute right-3 top-3"
           >
             {copiedCode === id ? <CheckCircle size={16} /> : <Copy size={16} />}
           </button>
@@ -33,7 +33,7 @@ export default function APIDocumentation() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen pb-10 bg-gradient-to-br from-slate-100 via-white to-slate-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 ">
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-10 pt-7 dark:bg-gray-900/80 dark:border-gray-800/50">
         <div className="container mx-auto px-4 py-6">
@@ -56,7 +56,7 @@ export default function APIDocumentation() {
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto pt-4">
           {/* Quick Start */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6 flex items-center">
@@ -128,7 +128,7 @@ export default function APIDocumentation() {
                 Get a quote for a swap without executing a transaction.
               </p>
 
-              <h4 className="font-semibold mb-3 dark:text-gray-200">Параметры</h4>
+              <h4 className="font-semibold mb-3 dark:text-gray-200">Parameters</h4>
               <div className="overflow-x-auto mb-4">
                 <table className="w-full text-sm border border-gray-200 rounded-lg dark:border-gray-700">
                   <thead className="bg-gray-50 dark:bg-gray-800">
@@ -143,19 +143,19 @@ export default function APIDocumentation() {
                     <tr>
                       <td className="p-3 font-mono text-purple-600 dark:text-purple-400">fromMint</td>
                       <td className="p-3 dark:text-gray-400">string</td>
-                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400"><CheckCircle size={20} color={'green'} /></td>
                       <td className="p-3 dark:text-gray-400">Incoming token address</td>
                     </tr>
                     <tr>
                       <td className="p-3 font-mono text-purple-600 dark:text-purple-400">toMint</td>
                       <td className="p-3 dark:text-gray-400">string</td>
-                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400"><CheckCircle size={20} color={'green'} /></td>
                       <td className="p-3 dark:text-gray-400">Outgoing token address</td>
                     </tr>
                     <tr>
                       <td className="p-3 font-mono text-purple-600 dark:text-purple-400">amount</td>
                       <td className="p-3 dark:text-gray-400">number</td>
-                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400"><CheckCircle size={20} color={'green'} /></td>
                       <td className="p-3 dark:text-gray-400">Number of incoming tokens</td>
                     </tr>
                   </tbody>
@@ -229,25 +229,25 @@ x-wallet-address: YOUR_WALLET_ADDRESS`}
                     <tr>
                       <td className="p-3 font-mono text-green-600 dark:text-green-400">fromMint</td>
                       <td className="p-3 dark:text-gray-400">string</td>
-                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400"><CheckCircle size={20} color={'green'} /></td>
                       <td className="p-3 dark:text-gray-400">Incoming token address</td>
                     </tr>
                     <tr>
                       <td className="p-3 font-mono text-green-600 dark:text-green-400">toMint</td>
                       <td className="p-3 dark:text-gray-400">string</td>
-                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400"><CheckCircle size={20} color={'green'} /></td>
                       <td className="p-3 dark:text-gray-400">Outgoing token address</td>
                     </tr>
                     <tr>
                       <td className="p-3 font-mono text-green-600 dark:text-green-400">amount</td>
                       <td className="p-3 dark:text-gray-400">number</td>
-                      <td className="p-3 dark:text-gray-400">✅</td>
+                      <td className="p-3 dark:text-gray-400"><CheckCircle size={20} color={'green'} /></td>
                       <td className="p-3 dark:text-gray-400">Number of incoming tokens</td>
                     </tr>
                     <tr>
                       <td className="p-3 font-mono text-green-600 dark:text-green-400">slippage</td>
                       <td className="p-3 dark:text-gray-400">number</td>
-                      <td className="p-3 dark:text-gray-400">❌</td>
+                      <td className="p-3 dark:text-gray-400"><X size={20} color={'red'} /></td>
                       <td className="p-3 dark:text-gray-400">Slippage in percent (default: 0.5)</td>
                     </tr>
                   </tbody>
@@ -423,23 +423,23 @@ const swap = await api.prepareSwap(SOL_MINT, USDC_MINT, 1000000, 0.5);`}
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-sm dark:text-gray-400">Raydium - ✅ Ready</span>
+                      <span className="text-sm dark:text-gray-400 flex gap-3">Raydium -  <CheckCircle size={20} color={'green'} /> Ready </span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
-                      <span className="text-sm dark:text-gray-400">Jupiter Aggregator - 🚧 In development</span>
+                      <span className="text-sm dark:text-gray-400 flex gap-3">Jupiter Aggregator - <Construction size={20} color={'orange'} /> In development</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm dark:text-gray-400">Meteora - 📋 Planned</span>
+                      <span className="text-sm dark:text-gray-400 flex gap-3">Meteora - <NotebookPen size={20} color={'darkgray'} /> Planned</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm dark:text-gray-400">Pump.fun - 📋 Planned</span>
+                      <span className="text-sm dark:text-gray-400 flex gap-3">Pump.fun - <NotebookPen size={20} color={'darkgray'} /> Planned</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
-                      <span className="text-sm dark:text-gray-400">Orca - 📋 Planned</span>
+                      <span className="text-sm dark:text-gray-400 flex gap-3">Orca - <NotebookPen size={20} color={'darkgray'} /> Planned</span>
                     </div>
                   </div>
                 </div>

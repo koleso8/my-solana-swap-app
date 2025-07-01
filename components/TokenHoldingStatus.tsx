@@ -3,6 +3,7 @@
 import { useWallet } from "@solana/wallet-adapter-react"
 import { useEffect, useState } from "react"
 import { SOLANA_CONFIG } from "@/config/constants"
+import { CheckCircle } from "lucide-react"
 
 export function TokenHoldingStatus() {
   const { publicKey } = useWallet()
@@ -51,7 +52,7 @@ export function TokenHoldingStatus() {
         <div>
           {holding.isHolder ? (
             <div className="text-green-600">
-              <p className="font-medium">✅ Unlimited Access!</p>
+              <p className="font-medium"><CheckCircle size={20} color={'green'} /> Unlimited Access!</p>
               <p className="text-sm">You hold {holding.amount} tokens</p>
             </div>
           ) : (

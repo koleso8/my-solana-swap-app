@@ -124,3 +124,23 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.wallet-adapter-modal-title {
+   font-size: 16px !important;
+   padding-top: 20px !important;
+   padding-left: 10px !important;
+}
+
+.wallet-adapter-modal >  .wallet-adapter-button {
+  font-size: 28px !important;
+}
+
+ .wallet-adapter-button-start-icon  {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.wallet-adapter-button-start-icon  img {
+  width: 40px !important;
+  height: 40px !important;
+}

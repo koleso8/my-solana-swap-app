@@ -90,7 +90,7 @@ export function BalanceDisplay(onCheckBalance, isLoading) {
           <div className="space-y-4">
             {/* SOL */}
             <div className="flex items-center gap-3">
-              <img src="/sol.png" alt="SOL" className="w-6 h-6" />
+              <img src="/sol.png" alt="SOL" className="w-6 h-6 rounded-full" />
               <span className="font-medium text-gray-900 dark:text-gray-50">
                 {balance.sol.toFixed(4)} SOL
               </span>

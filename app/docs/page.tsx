@@ -33,9 +33,9 @@ export default function APIDocumentation() {
   );
 
   return (
-    <div className="min-h-screen pb-10 bg-gradient-to-br from-slate-100 via-white to-slate-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 ">
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 ">
       {/* Header */}
-      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-10 pt-7 dark:bg-gray-900/80 dark:border-gray-800/50">
+      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50  z-10 pt-7 dark:bg-gray-900/80 dark:border-gray-800/50">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
@@ -490,18 +490,15 @@ const swap = await api.prepareSwap(SOL_MINT, USDC_MINT, 1000000, 0.5);`}
                   <Code size={16} className="mr-2" />
                   GitHub
                 </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors dark:text-blue-400 dark:hover:text-blue-300"
-                >
-                  <ExternalLink size={16} className="mr-2" />
-                  Documentation
-                </a>
+
               </div>
             </div>
           </section>
         </div>
       </div>
+      <footer className="text-center py-6 mt-10 border-t border-gray-200 dark:border-gray-700">
+        <p>All Rights Reserved &copy;SOLDEV TOOLS 2025</p>
+      </footer>
     </div>
   );
 }

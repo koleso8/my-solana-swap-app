@@ -37,6 +37,9 @@ export default function HomePage() {
         <TokenUtility />
         <WalletInfo />
         <BackgroundBlur />
+        <footer className="text-center py-6 mt-10 border-t border-gray-200 dark:border-gray-700">
+          <p>All Rights Reserved &copy;SOLDEV TOOLS 2025</p>
+        </footer>
       </div>
     </AnimatePresence>
   );
@@ -144,7 +147,7 @@ function TokenUtility() {
     <section className="relative py-5 md:py-16">
       <div className="container mx-auto px-4">
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-10 rounded-3xl text-center shadow-inner backdrop-blur-md">
-          <h2 className="text-3xl font-bold mb-4">Hold $NoRug for Unlimited Access</h2>
+          <h2 className="text-3xl font-bold mb-4">Hold $TOOLS for Unlimited Access</h2>
           <p className="text-gray-700 mb-6">
             Non‑token holders get{" "}
             <span className="font-semibold">{process.env.NEXT_PUBLIC_API_RATE_LIMIT} API calls / day</span>.
@@ -157,7 +160,7 @@ function TokenUtility() {
               onClick={handleClick}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-md transition"
             >
-              Get $TOKEN
+              Get $TOOLS
             </button>
           ) : (
             <div className="flex justify-center gap-4">
@@ -232,7 +235,9 @@ function WalletInfo() {
         <BalanceDisplay />
         <TokenHoldingStatus />
       </motion.div>
+
     </section>
+
   );
 }
 

@@ -29,7 +29,7 @@ export default function DashboardPage() {
 
   if (!publicKey) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center ">
+      <div className="container mx-auto px-4 py-16 text-center pb-10">
         <h1 className="text-4xl font-bold mb-6 pt-16">Welcome to Dashboard</h1>
         <p className="text-gray-600 mb-8">Connect your wallet to begin</p>
         <WalletButton />
@@ -38,31 +38,31 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 pt-6 ">
-      <div className="max-w-5xl mx-auto flex flex-col gap-8 pt-10">
-        <h1 className="text-4xl font-bold">Dashboard</h1>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          <BalanceSection walletAddress={walletAddress} modalState={modalState} />
-          <TokenHoldingStatus hasHolding={hasHolding} loading={loading} error={error} amount={amount} />
+    <div>
+      <div className="container mx-auto  ">
+        <div className="max-w-5xl mx-auto flex flex-col gap-8 ppx-4 pt-6">
+          <h1 className="text-4xl font-bold">Dashboard</h1>
+          <div className="grid md:grid-cols-2 gap-6">
+            <BalanceSection walletAddress={walletAddress} modalState={modalState} />
+            <TokenHoldingStatus hasHolding={hasHolding} loading={loading} error={error} amount={amount} />
+          </div>
+          <ApiUsageSection hasHolding={hasHolding} loading={loading} error={error} amount={amount} />
+          <QuickActions
+            walletAddress={walletAddress}
+            modalState={modalState}
+          />
+          <TransactionStatus status={txStatus} />
+          <SwapSection
+            walletAddress={walletAddress}
+            setTxStatus={setTxStatus}
+            clearTxStatus={clearTxStatus}
+            modalState={modalState}
+          />
         </div>
-
-        <ApiUsageSection hasHolding={hasHolding} loading={loading} error={error} amount={amount} />
-
-        <QuickActions
-          walletAddress={walletAddress}
-          modalState={modalState}
-        />
-
-        <TransactionStatus status={txStatus} />
-
-        <SwapSection
-          walletAddress={walletAddress}
-          setTxStatus={setTxStatus}
-          clearTxStatus={clearTxStatus}
-          modalState={modalState}
-        />
       </div>
+      <footer className="text-center py-6 mt-10 border-t border-gray-200 dark:border-gray-700">
+        <p>All Rights Reserved &copy;SOLDEV TOOLS 2025</p>
+      </footer>
     </div>
   );
 }

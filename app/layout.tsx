@@ -44,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <ClientWalletProvider>
           <main>{children}</main>
+
         </ClientWalletProvider>
       </body>
     </html>

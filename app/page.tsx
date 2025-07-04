@@ -33,9 +33,9 @@ export default function HomePage() {
     <AnimatePresence mode="wait">
       <div key={isWalletLoading ? 'loading' : 'ready'} className="relative overflow-hidden">
         <HeroSection isWalletLoading={isWalletLoading} />
+
         <Features />
         <TokenUtility />
-        <WalletInfo />
         <BackgroundBlur />
         <footer className="text-center py-6 mt-10 border-t border-gray-200 dark:border-gray-700">
           <p>All Rights Reserved &copy;SOLDEV TOOLS 2025</p>
@@ -75,8 +75,11 @@ function HeroSection({ isWalletLoading }: { isWalletLoading: boolean }) {
         >
           {isWalletLoading ? (
             <div className="w-36 h-12 bg-purple-500 rounded-lg animate-pulse" />
-          ) : (
+          ) : (<div className='flex flex-col items-center justify-center w-full  gap-4'>
+
+            <WalletInfo />
             <WalletButton />
+          </div>
           )}
         </motion.div>
       </div>
@@ -224,9 +227,9 @@ function TokenUtility() {
 
 function WalletInfo() {
   return (
-    <section className="container mx-auto px-4 pb-24">
+    <section className="container mx-auto px-4 pb-24 items-center" >
       <motion.div
-        className="grid md:grid-cols-2 gap-6"
+        className="flex items-center justify-center  gap-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
